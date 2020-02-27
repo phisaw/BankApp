@@ -5,20 +5,20 @@ public class BankMenu {
 
     Scanner Scan = new Scanner(System.in);
 
-
     public void switchCase() {
         String choice;
         do {
-
-            System.out.println("Enter choice 1 - 5");
+            System.out.println();
+            System.out.println("Enter choice (1 - 5)");
             System.out.println();
             System.out.println("1. View Balance");
             System.out.println("2. Deposit Cash");
             System.out.println("3. Withdrawal Cash");
             System.out.println("4. Exit Application");
-            System.out.println();
+            System.out.print(">");
 
             choice = Scan.nextLine();
+
 
             switch (choice) {
                 case "1":
