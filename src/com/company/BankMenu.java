@@ -9,7 +9,7 @@ public class BankMenu {
         String choice;
         do {
             System.out.println();
-            System.out.println("Enter choice (1 - 5)");
+            System.out.println("Enter choice (1 - 4)");
             System.out.println();
             System.out.println("1. View Balance");
             System.out.println("2. Deposit Cash");
@@ -37,10 +37,11 @@ public class BankMenu {
                     break;
 
                 default:
-                    System.out.println("Invalid choice, enter 1-5");
+                    System.out.println("Invalid choice, enter 1-4");
                     break;
             }
         }
-        while (choice.equals("1") || choice.equals("2") || choice.equals("3") || choice.equals("4"));
+        while (choice.equals("1") || choice.equals("2") || choice.equals("3"));
+        //TODO fixa while loop med alternativ 3.
     }
 }

@@ -31,14 +31,18 @@ public class BankFeatures {
 
         try {
             addCash = Scan.nextDouble();
+            }
+        catch (Exception e){
+            System.out.println("Invalid amount");
+        }
+        if (addCash >=0) {
             sum = addCash+balance;
-
             System.out.println("you deposit " +addCash + ", was earlier " +balance +". Is now "+sum);
             balance=sum;
             System.out.println("Balance is now "+balance);
         }
-        catch (Exception e){
-            System.out.println("Invalid amount");
+        else{
+            System.out.println("Try to enter another amount");
         }
 
 
@@ -46,21 +50,24 @@ public class BankFeatures {
 
     public static void withdrawalCash() {
 
-
+        System.out.println("Current balance is " +balance);
         System.out.println("How much would you like to withdrawal?");
 
         try {
             takeCash = Scan.nextDouble();
-            sum = takeCash-balance;
-            if (sum >=0) {
-                System.out.println("Your current balance is " +sum);
-            }
-            else{
-                System.out.println("Insufficient cash, withdrawal lower amount");
-            }
         }
         catch (Exception e){
             System.out.println("You entered wrong format");
+            //TODO kodsäkra
+        }
+        if ((balance >= takeCash) && (takeCash >= 0)) {
+            sum = balance-takeCash;
+            System.out.println("you withdrawal " +takeCash + ", was earlier " +balance +". Is now "+sum);
+            balance=sum;
+            System.out.println("Your current balance is now " +balance);
+        }
+        else{
+            System.out.println("Insufficient cash, withdrawal lower amount");
         }
 
     }
