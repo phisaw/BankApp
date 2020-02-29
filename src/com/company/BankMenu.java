@@ -7,6 +7,7 @@ public class BankMenu {
 
     public void switchCase() {
         String choice;
+
         do {
             System.out.println();
             System.out.println("Enter choice (1 - 4)");
@@ -31,6 +32,7 @@ public class BankMenu {
 
                 case "3":
                     BankFeatures.withdrawalCash();
+                    break;
 
                 case "4":
                     BankFeatures.exitApp();
@@ -40,8 +42,6 @@ public class BankMenu {
                     System.out.println("Invalid choice, enter 1-4");
                     break;
             }
-        }
-        while (choice.equals("1") || choice.equals("2") || choice.equals("3"));
-        //TODO fixa while loop med alternativ 3.
+        } while(choice.equals("1") || choice.equals("2") || choice.equals("3"));
     }
 }

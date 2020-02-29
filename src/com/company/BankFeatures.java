@@ -1,5 +1,4 @@
 package com.company;
-
 import java.util.Scanner;
 
 public class BankFeatures {
@@ -49,30 +48,41 @@ public class BankFeatures {
     }
 
     public static void withdrawalCash() {
+        boolean loop = true;
+        do {
+            System.out.println("Current balance is " +balance);
+            System.out.println("How much would you like to withdrawal?");
 
-        System.out.println("Current balance is " +balance);
-        System.out.println("How much would you like to withdrawal?");
+            try {
+                takeCash = Scan.nextDouble();
 
-        try {
-            takeCash = Scan.nextDouble();
+                if ((balance >= takeCash) && (takeCash >= 0)) {
+                    sum = balance-takeCash;
+                    System.out.println("you withdrawal " +takeCash + ", previous balance was " +balance +". Now "+sum);
+                    balance=sum;
+                    System.out.println("Your current balance is now " +balance);
+                    loop =false;
+                }
+                else{
+                    System.out.println("Insufficient cash!, withdrawal lower amount");
+                    System.out.println();
+                }
+            }
+            catch (Exception e){
+                System.out.println("You entered wrong format");
+                loop = false;
+                //TODO kodsäkra
+            }
+
         }
-        catch (Exception e){
-            System.out.println("You entered wrong format");
-            //TODO kodsäkra
-        }
-        if ((balance >= takeCash) && (takeCash >= 0)) {
-            sum = balance-takeCash;
-            System.out.println("you withdrawal " +takeCash + ", was earlier " +balance +". Is now "+sum);
-            balance=sum;
-            System.out.println("Your current balance is now " +balance);
-        }
-        else{
-            System.out.println("Insufficient cash, withdrawal lower amount");
-        }
+        while (loop);
+
+
 
     }
 
-    public static void exitApp() {
+    static void exitApp() {
+
         System.exit(0);
     }
 }
