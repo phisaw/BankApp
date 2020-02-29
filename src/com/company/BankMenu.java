@@ -6,7 +6,9 @@ public class BankMenu {
     Scanner Scan = new Scanner(System.in);
 
     public void switchCase() {
+
         String choice;
+        boolean loop = true;
 
         do {
             System.out.println();
@@ -19,7 +21,6 @@ public class BankMenu {
             System.out.print(">");
 
             choice = Scan.nextLine();
-
 
             switch (choice) {
                 case "1":
@@ -42,6 +43,7 @@ public class BankMenu {
                     System.out.println("Invalid choice, enter 1-4");
                     break;
             }
-        } while(choice.equals("1") || choice.equals("2") || choice.equals("3"));
+        } while(loop);
+        //choice.equals("1") || choice.equals("2") || choice.equals("3")
     }
 }

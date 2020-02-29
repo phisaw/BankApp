@@ -1,4 +1,5 @@
 package com.company;
+import java.util.InputMismatchException;
 import java.util.Scanner;
 
 public class BankFeatures {
@@ -12,8 +13,6 @@ public class BankFeatures {
     }*/
 
     static double balance = 0;
-    static double takeCash;
-    static double addCash;
     static double sum;
     static Scanner Scan = new Scanner(System.in);
 
@@ -24,30 +23,33 @@ public class BankFeatures {
     }
 
     public static void depositCash() {
-
+        double addCash;
 
         System.out.println("How much would you like to deposit?");
 
         try {
             addCash = Scan.nextDouble();
+
+                if (addCash >=0) {
+                sum = addCash+balance;
+                System.out.println("you deposit " +addCash + ", was earlier " +balance +". Is now "+sum);
+                balance=sum;
+                System.out.println("Balance is now "+balance);
+                }
+                else {
+                System.out.println("Try to enter another amount");
+
+                }
+
             }
-        catch (Exception e){
-            System.out.println("Invalid amount");
+        catch (InputMismatchException ex){
+            System.out.println("Error: invalid amount");
         }
-        if (addCash >=0) {
-            sum = addCash+balance;
-            System.out.println("you deposit " +addCash + ", was earlier " +balance +". Is now "+sum);
-            balance=sum;
-            System.out.println("Balance is now "+balance);
-        }
-        else{
-            System.out.println("Try to enter another amount");
-        }
-
-
-    }
+ }
 
     public static void withdrawalCash() {
+        double takeCash;
+
         boolean loop = true;
         do {
             System.out.println("Current balance is " +balance);
@@ -69,7 +71,7 @@ public class BankFeatures {
                 }
             }
             catch (Exception e){
-                System.out.println("You entered wrong format");
+                System.out.println("Error: invalid format");
                 loop = false;
                 //TODO kodsäkra
             }
