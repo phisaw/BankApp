@@ -43,6 +43,7 @@ public class BankFeatures {
 
             }
         catch (InputMismatchException ex){
+            Scan.nextLine();
             System.out.println("Error: invalid amount");
         }
  }
@@ -71,9 +72,12 @@ public class BankFeatures {
                 }
             }
             catch (Exception e){
+                Scan.nextLine();
                 System.out.println("Error: invalid format");
                 loop = false;
+                e = null;
                 //TODO kodsäkra
+                //TODO if exception is thrown, the program is stuck and skip try block
             }
 
         }
@@ -81,7 +85,7 @@ public class BankFeatures {
 
 
 
-    }
+        }
 
     static void exitApp() {
 
